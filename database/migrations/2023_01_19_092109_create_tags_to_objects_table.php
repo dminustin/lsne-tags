@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('tag_id')->index();
             $table->uuid('object_id')->index();
-            $table->string('object_class');
+            $table->string('object_type');
             $table->string('tag_type');
             $table->timestamps();
         });

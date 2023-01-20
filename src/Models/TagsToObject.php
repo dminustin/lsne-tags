@@ -12,7 +12,7 @@ class TagsToObject extends BaseTagsToObject
     protected $fillable = [
         'tag_id',
         'object_id',
-        'object_class',
+        'object_type',
         'tag_type'
     ];
 }
