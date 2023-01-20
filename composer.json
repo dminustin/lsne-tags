@@ -6,6 +6,7 @@
         "tags-package"
     ],
     "homepage": "https://github.com/dminustin/lsne-tags",
+    "minimum-stability": "dev",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -16,11 +17,9 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0"
+        "php": "^7.4|^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.0"
     },
     "autoload": {
