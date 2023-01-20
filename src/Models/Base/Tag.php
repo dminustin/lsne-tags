@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Tag
- * 
+ *
  * @property string $id
  * @property string $title
  * @property string $name_hash
@@ -24,11 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
-	protected $table = 'tags';
-	public $incrementing = false;
+    protected $table = 'tags';
+    public $incrementing = false;
 
-	protected $casts = [
-		'locked' => 'bool',
-		'usage_count' => 'int'
-	];
+    protected $casts = [
+        'locked' => 'bool',
+        'usage_count' => 'int'
+    ];
 }

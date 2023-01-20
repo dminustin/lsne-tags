@@ -14,33 +14,27 @@ class PackageServiceProvider extends ServiceProvider
         /*
          * Optional methods to load your package assets
          */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'core-package');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'core-package');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', Package::PACKAGE_NAME);
+        // $this->loadViewsFrom(__DIR__.'/../resources/views', Package::PACKAGE_NAME);
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('lsne-tags.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/core-package'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/core-package'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/core-package'),
-            ], 'lang');*/
-
+            $this->copyByDir(__DIR__ . '/../config/*.php', config_path(), 'config');
             // Registering package commands.
             // $this->commands([]);
+        }
+    }
+
+    protected function copyByDir($searchMask, $toDir, $tag)
+    {
+        $migrations = glob($searchMask);
+        $copy = [];
+        foreach ($migrations as $migration) {
+            $copy[$migration] = $toDir . basename($migration);
+        }
+        if (count($copy)) {
+            $this->publishes($copy, $tag);
         }
     }
 
@@ -50,10 +44,10 @@ class PackageServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'lsne-tags.php');
+        $this->mergeConfigFrom(__DIR__ . '/../config/' . Package::PACKAGE_NAME . '.php', Package::PACKAGE_NAME . '.php');
 
         // Register the main class to use with the facade
-        $this->app->singleton('lsne-tags', function () {
+        $this->app->singleton(Package::PACKAGE_NAME, function () {
             return new Package();
         });
     }

@@ -4,5 +4,5 @@ namespace Dminustin\LSNE\TagsPackage;
 
 class Package
 {
-    // Build your next great package.
+    public const PACKAGE_NAME = 'lsne-tags';
 }

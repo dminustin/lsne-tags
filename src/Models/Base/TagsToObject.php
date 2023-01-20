@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TagsToObject
- * 
+ *
  * @property string $id
  * @property string $tag_id
  * @property string $object_id
@@ -24,6 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TagsToObject extends Model
 {
-	protected $table = 'tags_to_objects';
-	public $incrementing = false;
+    protected $table = 'tags_to_objects';
+    public $incrementing = false;
 }

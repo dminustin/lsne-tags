@@ -13,6 +13,6 @@ class PackageFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'lsne-tags';
+        return Package::PACKAGE_NAME;
     }
 }

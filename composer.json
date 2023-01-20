@@ -1,11 +1,11 @@
 {
-    "name": "dminustin/lsne-tags-package",
+    "name": "dminustin/lsne-tags",
     "description": "Tags package",
     "keywords": [
         "dminustin",
         "tags-package"
     ],
-    "homepage": "https://github.com/dminustin/lsne-tags-package",
+    "homepage": "https://github.com/dminustin/lsne-tags",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -47,7 +47,7 @@
                 "Dminustin\\LSNE\\TagsPackage\\PackageServiceProvider"
             ],
             "aliases": {
-                "CorePackage": "Dminustin\\LSNE\\TagsPackage\\PackageFacade"
+                "LSNETagsPackage": "Dminustin\\LSNE\\TagsPackage\\PackageFacade"
             }
         }
     }
